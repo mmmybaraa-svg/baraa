@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="icon" type="image/svg+xml" href="logo.svg">
+  <title>سجل التحويلات | دَرْب</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body data-page="passenger-transfer-history" class="app-shell">
+  <div data-site-nav></div>
+  <div class="demo-banner" data-demo-banner></div>
+  <main class="page">
+    <div class="container">
+      <div class="page-head">
+        <div>
+          <h1>سجل التحويلات</h1>
+          <p class="muted">سجل مكافآت النقاط والتحويلات الصادرة.</p>
+        </div>
+      </div>
+      <section id="passengerPointsMount" class="card passenger-points" data-points-view="history" aria-labelledby="passengerHistoryTitle">
+        <div class="section-head">
+          <div>
+            <h2 id="passengerHistoryTitle">سجل النقاط والتحويلات</h2>
+            <p class="muted">رصيدك القابل للتحويل: <strong data-passenger-points-balance>—</strong></p>
+          </div>
+        </div>
+        <div class="passenger-point-history">
+          <div class="list" data-passenger-point-history><p class="muted">جارٍ تحميل السجل...</p></div>
+        </div>
+      </section>
+    </div>
+  </main>
+  <script src="js/script.js"></script>
+  <script src="js/i18n.js"></script>
+  <script src="js/passenger-points.js"></script>
+</body>
+</html>

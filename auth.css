@@ -1,0 +1,99 @@
+/* ==========================================================================
+   دَرْب — Auth pages (login / register)
+   ========================================================================== */
+.auth-page {
+  min-height: 100vh;
+  background:
+    radial-gradient(720px 420px at 4% 6%, rgba(204, 251, 241, .6), transparent 55%),
+    radial-gradient(760px 440px at 100% 96%, rgba(226, 232, 240, .7), transparent 55%),
+    var(--bg);
+}
+.auth-wrap { width: min(1060px, calc(100% - 36px)); margin: 0 auto; padding: clamp(24px, 5vh, 52px) 0; }
+.auth-wrap > .brand { margin: 0 0 18px 3px; }
+.auth-card {
+  overflow: hidden;
+  border: 1px solid var(--border); border-radius: var(--r-xl);
+  background: #fff; box-shadow: var(--shadow-lg);
+}
+.auth-grid { display: grid; min-height: 560px; grid-template-columns: .8fr 1.2fr; }
+.auth-side {
+  position: relative; display: flex; overflow: hidden; flex-direction: column; justify-content: center;
+  padding: clamp(30px, 5vw, 54px);
+  background:
+    radial-gradient(circle at 14% 88%, rgba(94, 234, 212, .18), transparent 42%),
+    linear-gradient(155deg, #113a40, #0b2327);
+  color: #fff;
+}
+.auth-side::after {
+  position: absolute; right: -85px; bottom: -105px; width: 280px; height: 280px;
+  border: 1px solid rgba(94, 234, 212, .2); border-radius: 50%; content: "";
+  box-shadow: 0 0 0 26px rgba(94, 234, 212, .03), 0 0 0 58px rgba(94, 234, 212, .022);
+}
+.auth-side h1 { position: relative; z-index: 1; margin: 0 0 12px; font-size: clamp(1.9rem, 3.6vw, 2.5rem); font-weight: 800; letter-spacing: -.03em; line-height: 1.3; }
+.auth-side p { position: relative; z-index: 1; color: #bcd3d2; }
+.auth-side .notice {
+  position: relative; z-index: 1; border-color: rgba(255, 255, 255, .14);
+  background: rgba(255, 255, 255, .08); color: #dceceb;
+}
+.auth-main { min-width: 0; padding: clamp(25px, 5vw, 52px); }
+.auth-main h1, .auth-main h2 { margin: 0; color: var(--navy); font-size: clamp(1.55rem, 2.8vw, 1.95rem); font-weight: 800; letter-spacing: -.03em; }
+.auth-main > .muted { margin-top: 7px; }
+.auth-main form { margin-top: 21px; }
+.auth-main form > .field + .field { margin-top: 16px; }
+
+.role-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 13px; margin-top: 16px; }
+.role-card {
+  position: relative; display: block; min-height: 142px; padding: 21px 18px;
+  border: 1px solid var(--border-strong); border-radius: var(--r-lg); background: #fff;
+  cursor: pointer; text-align: right;
+  transition: border-color var(--transition), background var(--transition), box-shadow var(--transition), transform var(--transition);
+}
+.role-card:hover { transform: translateY(-2px); border-color: var(--teal); }
+.role-card:has(input:checked), .role-card.active {
+  border-color: var(--teal); background: var(--teal-wash);
+  box-shadow: 0 0 0 4px rgba(15, 118, 110, .09);
+}
+.role-card:focus-within { outline: 3px solid rgba(15, 118, 110, .22); outline-offset: 2px; }
+.role-card input { position: absolute; top: 15px; left: 15px; width: 17px; height: 17px; margin: 0; }
+.role-card strong { display: block; padding-inline-end: 24px; color: var(--navy); font-size: 1rem; }
+.role-card p { margin: 8px 0 0; font-size: .89rem; }
+
+.auth-actions { display: flex; justify-content: space-between; gap: 10px; margin-top: 24px; }
+.auth-actions .btn { min-width: 120px; }
+.progress { margin-block: 20px 25px; }
+.auth-page .field-error { color: var(--danger-ink); font-size: .84rem; margin-top: 4px; }
+.auth-page .field-hint { color: var(--muted); font-size: .84rem; margin-top: 4px; }
+.auth-page .field-success { color: var(--success-ink); font-size: .84rem; margin-top: 4px; }
+.auth-page .field-group.is-invalid .field-input,
+.auth-page .field.is-invalid .field-input,
+.auth-page .field-input.is-invalid { border-color: var(--danger); box-shadow: 0 0 0 3px rgba(225, 29, 72, .08); }
+.auth-page .field-group.is-valid .field-input,
+.auth-page .field.is-valid .field-input,
+.auth-page .field-input.is-valid { border-color: var(--teal); box-shadow: 0 0 0 3px rgba(15, 118, 110, .08); }
+
+.password-strength { margin-top: 8px; }
+.password-strength-bar { width: 100%; height: 6px; border-radius: var(--r-full); background: var(--border); overflow: hidden; }
+.password-strength-fill { height: 100%; width: 0; transition: width var(--transition), background var(--transition); }
+.password-strength-text { margin-top: 4px; font-size: .84rem; color: var(--muted); }
+.password-toggle {
+  position: absolute; left: 10px; top: 50%; transform: translateY(-50%);
+  border: 1px solid var(--border); background: #fff; color: var(--teal-dark);
+  border-radius: var(--r-xs); padding: 4px 9px; font-size: .84rem; font-weight: 700;
+}
+.password-toggle:hover { background: var(--teal-wash); }
+
+@media (max-width: 800px) {
+  .auth-grid { min-height: 0; grid-template-columns: 1fr; }
+  .auth-side { min-height: 185px; padding: 27px 30px; }
+  .auth-side h1 { font-size: 1.7rem; }
+}
+@media (max-width: 520px) {
+  .auth-wrap { width: calc(100% - 24px); padding: 20px 0; }
+  .auth-card { border-radius: var(--r-lg); }
+  .auth-main { padding: 23px 19px; }
+  .auth-side { min-height: 150px; padding: 23px 20px; }
+  .auth-side .notice { margin-bottom: 0; font-size: .86rem; }
+  .role-grid { grid-template-columns: 1fr; }
+  .role-card { min-height: 112px; }
+  .auth-actions .btn { min-width: 0; flex: 1; }
+}

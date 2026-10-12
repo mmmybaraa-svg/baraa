@@ -1,0 +1,308 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="logo.svg">
+    <title>إنشاء حساب | دَرْب</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/auth.css" />
+  </head>
+  <body class="auth-page">
+    <div class="auth-wrap">
+      <a class="brand" href="index.html"
+        ><img class="brand-mark" src="logo.svg" alt="" width="40" height="40" decoding="async" /><span>دَرْب</span></a
+      >
+      <div class="auth-card" style="margin-top: 18px">
+        <main class="auth-main">
+          <h1>إنشاء حساب</h1>
+          <p class="muted">
+            اختر نوع الحساب ثم أكمل بياناتك.
+          </p>
+          <div class="progress">
+            <span class="step active"></span><span class="step"></span
+            ><span class="step"></span><span class="step"></span
+            ><span class="step"></span>
+          </div>
+          <form id="registerForm">
+            <section data-reg-step="1">
+              <h2>نوع الحساب</h2>
+              <div class="role-grid">
+                <label class="role-card active"
+                  ><input
+                    type="radio"
+                    name="role"
+                    value="passenger"
+                    checked
+                  /><strong>أنا طالب / راكب</strong>
+                  <p class="muted">
+                    ابحث عن رحلة وأرسل طلبات حجز.
+                  </p></label
+                ><label class="role-card"
+                  ><input type="radio" name="role" value="driver" /><strong
+                    >أنا سائق</strong
+                  >
+                  <p class="muted">
+                    أنشئ رحلات واستقبل طلبات الطلاب.
+                  </p></label
+                >
+              </div>
+              <div class="auth-actions">
+                <span></span
+                ><button type="button" class="btn btn-primary" data-next>
+                  التالي
+                </button>
+              </div>
+            </section>
+            <section data-reg-step="2" class="hidden">
+              <h2>المعلومات الشخصية</h2>
+              <div class="form-grid">
+                <div class="field field-group">
+                  <label for="registerFullName">الاسم الكامل</label
+                  ><input
+                    id="registerFullName"
+                    class="field-input"
+                    name="fullName"
+                    autocomplete="name"
+                    required
+                    aria-invalid="false"
+                  />
+                </div>
+                <div class="field field-group">
+                  <label for="registerUsername">اسم المستخدم</label
+                  ><input
+                    id="registerUsername"
+                    class="field-input"
+                    name="username"
+                    minlength="3"
+                    maxlength="20"
+                    pattern="[a-z0-9_]{3,20}"
+                    autocomplete="username"
+                    placeholder="baraa_jo"
+                    required
+                    aria-invalid="false"
+                  /><small class="field-hint"
+                    >استخدم من 3 إلى 20 حرفًا من الأحرف الإنجليزية الصغيرة
+                    والأرقام والشرطة السفلية (_) فقط.</small
+                  >
+                </div>
+                <div class="field field-group">
+                  <label for="registerPhone">رقم الهاتف</label
+                  ><input
+                    id="registerPhone"
+                    class="field-input"
+                    name="phone"
+                    inputmode="tel"
+                    placeholder="07XXXXXXXX"
+                    required
+                    aria-invalid="false"
+                  />
+                </div>
+                <div class="field field-group">
+                  <label for="registerEmail"
+                    >البريد الإلكتروني</label
+                  ><input
+                    id="registerEmail"
+                    class="field-input"
+                    name="email"
+                    type="email"
+                    autocomplete="email"
+                    required
+                    aria-invalid="false"
+                  />
+                </div>
+                <div class="field field-group">
+                  <label for="registerPassword">كلمة المرور</label>
+                  <div class="password-wrap">
+                    <input
+                      id="registerPassword"
+                      class="field-input"
+                      name="password"
+                      type="password"
+                      minlength="8"
+                      autocomplete="new-password"
+                      required
+                      aria-invalid="false"
+                    /><button
+                      type="button"
+                      class="password-toggle"
+                      data-password-toggle="#registerPassword"
+                      aria-label="إظهار كلمة المرور"
+                    >
+                      إظهار
+                    </button>
+                  </div>
+                  <small class="field-hint"
+                    >استخدم 8 أحرف على الأقل، ويُفضّل الجمع بين الأحرف الكبيرة
+                    والصغيرة والأرقام والرموز.</small
+                  >
+                  <div class="password-strength" aria-live="polite">
+                    <div class="password-strength-bar">
+                      <div
+                        class="password-strength-fill"
+                        data-password-meter
+                      ></div>
+                    </div>
+                  </div>
+                  <small
+                    class="password-strength-text"
+                    data-password-strength-text
+                    >لم تكتب كلمة المرور بعد.</small
+                  >
+                </div>
+                <div class="field field-group">
+                  <label for="registerConfirmPassword"
+                    >تأكيد كلمة المرور</label
+                  >
+                  <div class="password-wrap">
+                    <input
+                      id="registerConfirmPassword"
+                      class="field-input"
+                      name="confirmPassword"
+                      type="password"
+                      autocomplete="new-password"
+                      required
+                      aria-invalid="false"
+                    /><button
+                      type="button"
+                      class="password-toggle"
+                      data-password-toggle="#registerConfirmPassword"
+                      aria-label="إظهار كلمة المرور"
+                    >
+                      إظهار
+                    </button>
+                  </div>
+                </div>
+                <div class="field">
+                  <label>الجنس</label
+                  ><select name="gender" required>
+                    <option value="">اختر</option>
+                    <option value="ذكر">ذكر</option>
+                    <option value="أنثى">أنثى</option>
+                  </select>
+                </div>
+              </div>
+              <div class="auth-actions">
+                <button type="button" class="btn btn-outline" data-prev>
+                  السابق</button
+                ><button type="button" class="btn btn-primary" data-next>
+                  التالي
+                </button>
+              </div>
+            </section>
+            <section data-reg-step="3" class="hidden">
+              <h2>الجامعة والموقع</h2>
+              <div class="form-grid">
+                <div class="field full">
+                  <label>الجامعة</label
+                  ><select
+                    name="university"
+                    data-university-select
+                    required
+                  ></select>
+                </div>
+                <div class="field">
+                  <label>المحافظة</label
+                  ><select
+                    name="governorate"
+                    data-governorate
+                    data-for-target="reg"
+                    required
+                  ></select>
+                </div>
+                <div class="field">
+                  <label>اللواء / المنطقة</label
+                  ><select name="area" data-area="reg"></select>
+                </div>
+                <div class="field">
+                  <label>التجمع / المحلية</label
+                  ><select name="locality" data-locality="reg"></select>
+                </div>
+              </div>
+              <div class="auth-actions">
+                <button type="button" class="btn btn-outline" data-prev>
+                  السابق</button
+                ><button type="button" class="btn btn-primary" data-next>
+                  التالي
+                </button>
+              </div>
+            </section>
+            <section data-reg-step="4" class="hidden">
+              <h2>بيانات المركبة</h2>
+              <p class="muted" data-passenger-review>
+                إذا كنت راكبًا، فلا تحتاج إلى بيانات مركبة. اضغط التالي للمراجعة.
+              </p>
+              <div data-driver-fields class="form-grid hidden">
+                <div class="field">
+                  <label>نوع المركبة</label
+                  ><select name="vehicleType">
+                    <option value="">اختر</option>
+                    <option>Sedan</option>
+                    <option>SUV</option>
+                    <option>Van</option>
+                    <option>Minibus</option>
+                    <option>Other</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label>موديل المركبة</label
+                  ><input name="carModel" />
+                </div>
+                <div class="field">
+                  <label>سنة المركبة</label
+                  ><input name="carYear" type="number" min="1990" max="2035" />
+                </div>
+                <div class="field">
+                  <label>رقم اللوحة</label><input name="plateNumber" />
+                </div>
+                <div class="field">
+                  <label>عدد مقاعد الركاب</label
+                  ><input
+                    name="passengerSeats"
+                    type="number"
+                    min="1"
+                    max="20"
+                  />
+                </div>
+              </div>
+              <div class="auth-actions">
+                <button type="button" class="btn btn-outline" data-prev>
+                  السابق</button
+                ><button type="button" class="btn btn-primary" data-next>
+                  التالي
+                </button>
+              </div>
+            </section>
+            <section data-reg-step="5" class="hidden">
+              <h2>المراجعة والموافقة</h2>
+              <div class="notice info">
+                عند إنشاء الحساب، تُحفظ بياناتك على خادم SQL Server وتُستخدم
+                لتنسيق الرحلات الجامعية.
+              </div>
+              <label style="display: flex; gap: 8px; align-items: flex-start"
+                ><input type="checkbox" required /> أوافق على استخدام بياناتي
+                لتشغيل خدمات دَرْب وتنسيق الرحلات.</label
+              >
+              <div class="auth-actions">
+                <button type="button" class="btn btn-outline" data-prev>
+                  السابق</button
+                ><button type="submit" class="btn btn-primary">
+                  إنشاء الحساب
+                </button>
+              </div>
+            </section>
+          </form>
+          <p class="muted" style="margin-top: 18px">
+            عندك حساب؟
+            <a style="color: var(--teal); font-weight: 800" href="login.html"
+              >سجّل الدخول</a
+            >
+          </p>
+        </main>
+      </div>
+    </div>
+    <script src="js/script.js"></script>
+    <script src="js/i18n.js"></script>
+    <script src="js/auth.js"></script>
+  </body>
+</html>

@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="icon" type="image/svg+xml" href="logo.svg">
+  <title>سجل النقاط | دَرْب</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/driver.css">
+</head>
+<body data-page="driver-point-history" class="app-shell">
+  <div data-site-nav></div>
+  <div class="demo-banner" data-demo-banner></div>
+  <main class="page">
+    <div class="container">
+      <div class="page-head">
+        <div>
+          <h1>سجل النقاط</h1>
+          <p class="muted">حركات رصيدك والنقاط المحوّلة إليك من الطلاب.</p>
+        </div>
+      </div>
+      <section id="driverPointTransfersMount" class="card driver-transferred-points" data-driver-points-view="history" aria-labelledby="driverPointsHistoryTitle">
+        <div class="section-head">
+          <div>
+            <h2 id="driverPointsHistoryTitle">سجل النقاط والتحويلات</h2>
+            <p class="muted">النقاط المستلمة مضافة إلى رصيدك الموحد، ويمكن استخدامها لنشر الرحلات.</p>
+          </div>
+        </div>
+        <div class="driver-transferred-history">
+          <div class="list" data-driver-transferred-history><p class="muted">جارٍ تحميل السجل...</p></div>
+        </div>
+      </section>
+      <a class="btn btn-outline" href="driver-balance.html">العودة إلى رصيد السائق</a>
+    </div>
+  </main>
+  <script src="js/script.js"></script>
+  <script src="js/i18n.js"></script>
+  <script src="js/driver-point-transfers.js"></script>
+</body>
+</html>

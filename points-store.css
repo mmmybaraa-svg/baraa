@@ -1,0 +1,88 @@
+/* ==========================================================================
+   دَرْب — Point Store
+   ========================================================================== */
+.point-store-header {
+  margin-bottom: 20px;
+}
+
+.point-store-balance {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.point-store-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 16px;
+}
+
+.point-package {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  background: var(--surface);
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+}
+
+.point-package:hover {
+  transform: translateY(-2px);
+  border-color: var(--border-strong);
+  box-shadow: var(--shadow);
+}
+
+.point-package.featured {
+  border-color: rgba(15, 118, 110, 0.4);
+  box-shadow: 0 0 0 1px rgba(15, 118, 110, 0.1), var(--shadow-lg);
+}
+
+.point-package-header {
+  margin-bottom: 12px;
+}
+
+.point-package-header h3 {
+  margin: 0 0 6px 0;
+  color: var(--navy);
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.point-package-desc {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.point-package-body {
+  flex: 1;
+  margin-bottom: 16px;
+}
+
+.point-package-points {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--teal);
+  margin-bottom: 6px;
+  display: block;
+}
+
+.point-package-price {
+  color: var(--navy);
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.point-package-footer {
+  margin-top: auto;
+}
+
+@media (max-width: 640px) {
+  .point-store-grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="icon" type="image/svg+xml" href="logo.svg">
+  <title>رصيد الطالب | دَرْب</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body data-page="passenger-balance" class="app-shell">
+  <div data-site-nav></div>
+  <div class="demo-banner" data-demo-banner></div>
+  <main class="page">
+    <div class="container">
+      <div class="page-head">
+        <div>
+          <h1>رصيد الطالب</h1>
+          <p class="muted">رصيد نقاط الراكب ومكافآت الرحلات المكتملة.</p>
+        </div>
+      </div>
+      <section id="passengerPointsMount" class="card passenger-points" data-points-view="balance" aria-labelledby="passengerPointsTitle">
+        <div class="section-head">
+          <div>
+            <h2 id="passengerPointsTitle">نقاط الراكب</h2>
+            <p class="muted">رصيدك القابل للتحويل: <strong data-passenger-points-balance>—</strong></p>
+          </div>
+        </div>
+        <p class="muted" data-passenger-points-policy role="status">تحصل على نقاط بعد تأكيد الراكب والسائق اكتمال الرحلة.</p>
+        <p class="muted">تُضاف المكافأة بعد تأكيد إكمال الرحلة من الطالب والسائق معًا.</p>
+        <a class="btn btn-outline" href="passenger-transfers.html">الانتقال إلى التحويلات</a>
+      </section>
+    </div>
+  </main>
+  <script src="js/script.js"></script>
+  <script src="js/i18n.js"></script>
+  <script src="js/passenger-points.js"></script>
+</body>
+</html>

@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="icon" type="image/svg+xml" href="logo.svg">
+  <title>المحادثة | دَرْب</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/chat.css">
+</head>
+<body data-page="chat" class="app-shell">
+  <div data-site-nav></div>
+  <main class="page">
+    <div class="container chat-container">
+      <div class="chat-workspace" data-chat-workspace>
+        <aside class="chat-sidebar card" aria-label="قائمة المحادثات">
+          <header class="chat-sidebar-header">
+            <h1>الرسائل</h1>
+            <button class="btn btn-outline" type="button" data-chat-refresh>تحديث</button>
+          </header>
+          <p class="chat-sidebar-state muted" data-conversation-state role="status">جار تحميل المحادثات...</p>
+          <div class="conversation-list" data-conversation-list></div>
+        </aside>
+        <section class="chat-card card" aria-label="المحادثة المحددة" data-chat-panel>
+          <div class="chat-empty-state" data-chat-empty>
+            <strong>اختر محادثة</strong>
+            <span>ستظهر رسائلك هنا بعد اختيار محادثة من القائمة.</span>
+          </div>
+          <div class="chat-thread hidden" data-chat-thread>
+            <header class="chat-header">
+              <button class="chat-back btn btn-outline" type="button" data-chat-back aria-label="العودة لقائمة المحادثات">‹</button>
+              <div class="chat-avatar" data-chat-avatar>د</div>
+              <div class="chat-heading"><strong data-chat-name>جار تحميل المحادثة...</strong><span data-chat-status class="muted">محادثة مرتبطة بحجز</span></div>
+              <div class="chat-actions">
+                <button class="btn btn-soft call-toggle" type="button" data-call-audio aria-label="بدء مكالمة صوتية" title="مكالمة صوتية" disabled>
+                  <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                  <span>اتصال</span>
+                </button>
+                <button class="btn btn-soft call-toggle" type="button" data-call-video aria-label="بدء مكالمة فيديو" title="مكالمة فيديو" disabled>
+                  <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M23 7l-7 5 7 5V7z"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
+                  <span>فيديو</span>
+                </button>
+                <div class="chat-menu-wrap">
+                  <button class="chat-menu-toggle" type="button" data-chat-menu-toggle aria-haspopup="menu" aria-expanded="false" aria-controls="chatUserMenu" aria-label="خيارات المحادثة" title="خيارات">
+                    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="5" r="1.7"/><circle cx="12" cy="12" r="1.7"/><circle cx="12" cy="19" r="1.7"/></svg>
+                  </button>
+                  <div id="chatUserMenu" class="chat-menu hidden" data-chat-menu role="menu" aria-label="خيارات المحادثة">
+                    <a class="chat-menu-item hidden" data-chat-profile role="menuitem" href="#">
+                      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="8" r="4"/><path d="M4.5 20c1.6-3.6 4.4-5.4 7.5-5.4s5.9 1.8 7.5 5.4"/></svg>
+                      <span>الملف الشخصي</span>
+                    </a>
+                    <button class="chat-menu-item" type="button" role="menuitem" data-chat-block>
+                      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="m5.6 5.6 12.8 12.8"/></svg>
+                      <span data-chat-block-label>حظر المستخدم</span>
+                    </button>
+                    <button class="chat-menu-item danger" type="button" role="menuitem" data-chat-report>
+                      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 21V4"/><path d="M5 5h11l-1.6 3.5L16 12H5"/></svg>
+                      <span>الإبلاغ عن المستخدم</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </header>
+            <div class="chat-notice notice hidden" data-chat-notice role="status"></div>
+            <button class="chat-load-older hidden" type="button" data-chat-older>تحميل رسائل أقدم</button>
+            <div class="chat-messages" data-chat-messages aria-live="polite" aria-label="الرسائل">
+              <div class="empty">جار تحميل الرسائل...</div>
+            </div>
+            <form class="chat-composer" data-chat-form>
+              <div class="chat-image-preview hidden" data-chat-image-preview>
+                <img class="chat-image-preview-thumb" data-chat-image-thumb alt="معاينة الصورة">
+                <div class="chat-image-preview-copy">
+                  <span class="chat-image-preview-name" data-chat-image-name></span>
+                  <span class="chat-image-preview-size" data-chat-image-size></span>
+                  <span class="chat-image-preview-progress hidden" data-chat-image-progress role="status">جارٍ رفع الصورة...</span>
+                </div>
+                <div class="chat-image-preview-actions">
+                  <button class="btn btn-soft" type="button" data-chat-image-replace>استبدال</button>
+                  <button class="btn btn-primary" type="button" data-chat-send-image>إرسال الصورة</button>
+                  <button class="btn btn-outline" type="button" data-chat-image-cancel>إلغاء</button>
+                </div>
+              </div>
+              <div class="chat-voice-panel hidden" data-chat-voice>
+                <div class="chat-voice-recording" data-recording-state>
+                  <span class="chat-rec-dot" aria-hidden="true"></span>
+                  <span class="chat-rec-label">جارٍ التسجيل…</span>
+                  <span class="chat-rec-timer" data-recording-timer>00:00</span>
+                  <span class="chat-level-meter" data-level-meter aria-hidden="true">
+                    <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+                  </span>
+                  <button class="chat-rec-action primary" type="button" data-recording-stop>إيقاف</button>
+                  <button class="chat-rec-action" type="button" data-recording-cancel>إلغاء</button>
+                  <span class="visually-hidden" data-recording-status role="status">التسجيل الصوتي قيد التشغيل</span>
+                </div>
+                <div class="chat-voice-review hidden" data-review-state>
+                  <button class="chat-review-play" type="button" data-review-play aria-label="تشغيل التسجيل" title="تشغيل التسجيل"></button>
+                  <div class="chat-review-body">
+                    <input class="chat-voice-progress" type="range" min="0" max="1000" value="0" data-review-progress aria-label="موضع التشغيل">
+                    <span class="chat-review-time" data-review-time>00:00 / 00:00</span>
+                  </div>
+                  <button class="chat-rec-action" type="button" data-review-rerecord>إعادة التسجيل</button>
+                  <button class="chat-rec-action primary" type="button" data-review-send>إرسال</button>
+                  <button class="chat-rec-action danger" type="button" data-review-delete>حذف</button>
+                  <audio class="visually-hidden" data-review-audio preload="none"></audio>
+                </div>
+              </div>
+              <div class="chat-composer-row">
+                <label class="sr-only" for="chatInput">اكتب رسالتك</label>
+                <textarea id="chatInput" name="message" maxlength="2000" rows="1" placeholder="اكتب رسالتك..." required></textarea>
+                <span class="chat-attach" data-chat-attach>
+                  <span class="chat-attach-menu hidden" data-chat-photo-menu role="menu" aria-label="خيارات إرفاق صورة">
+                    <button type="button" role="menuitem" data-chat-photo-gallery>اختيار صورة من الجهاز</button>
+                    <button type="button" role="menuitem" data-chat-photo-capture>التقاط صورة بالكاميرا</button>
+                  </span>
+                  <button class="chat-icon-btn" type="button" data-chat-photo aria-label="إرسال صورة" title="إرسال صورة">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7.5A2.5 2.5 0 0 1 6.5 5h11A2.5 2.5 0 0 1 20 7.5v9a2.5 2.5 0 0 1-2.5 2.5h-11A2.5 2.5 0 0 1 4 16.5v-9Z"/><circle cx="9" cy="9.8" r="1.4"/><path d="m5.5 17 4.2-4.2a2 2 0 0 1 2.8 0L18 18.2"/></svg>
+                  </button>
+                </span>
+                <button class="chat-icon-btn chat-mic-button" type="button" data-chat-mic aria-label="تسجيل رسالة صوتية" title="تسجيل رسالة صوتية">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
+                </button>
+                <button class="btn btn-primary" type="submit" aria-label="إرسال الرسالة">إرسال</button>
+              </div>
+              <input class="visually-hidden" type="file" data-chat-file-upload accept="image/jpeg,image/png,image/webp">
+              <input class="visually-hidden" type="file" data-chat-camera-upload accept="image/*" capture="environment">
+            </form>
+          </div>
+        </section>
+      </div>
+    </div>
+  </main>
+  <div class="call-overlay hidden" data-call-overlay role="dialog" aria-modal="true" aria-label="مكالمة دَرْب">
+    <section class="call-card" data-call-card>
+      <div class="call-view call-view-incoming hidden" data-call-view="incoming">
+        <div class="call-avatar" data-call-avatar>د</div>
+        <strong class="call-name" data-call-name></strong>
+        <span class="call-subtitle" data-call-subtitle></span>
+        <div class="call-controls">
+          <button class="call-ctl reject" type="button" data-call-reject title="رفض">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.68 13.31a16 16 0 0 0 3.41 2.6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7 2 2 0 0 1 1.72 2v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.42 19.42 0 0 1-3.33-2.67m-2.67-3.34a19.79 19.79 0 0 1-3.07-8.63A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91"/><line x1="23" y1="1" x2="1" y2="23"/></svg>
+            <span>رفض</span>
+          </button>
+          <button class="call-ctl accept" type="button" data-call-accept title="قبول">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <span>قبول</span>
+          </button>
+        </div>
+      </div>
+      <div class="call-view call-view-outgoing hidden" data-call-view="outgoing">
+        <div class="call-avatar" data-call-avatar>د</div>
+        <strong class="call-name" data-call-name></strong>
+        <span class="call-subtitle" data-call-subtitle>جارٍ الاتصال...</span>
+        <div class="call-controls">
+          <button class="call-ctl end" type="button" data-call-cancel title="إلغاء الاتصال">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.68 13.31a16 16 0 0 0 3.41 2.6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7 2 2 0 0 1 1.72 2v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.42 19.42 0 0 1-3.33-2.67m-2.67-3.34a19.79 19.79 0 0 1-3.07-8.63A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91"/><line x1="23" y1="1" x2="1" y2="23"/></svg>
+            <span>إلغاء</span>
+          </button>
+        </div>
+      </div>
+      <div class="call-view call-view-active hidden" data-call-view="active">
+        <div class="call-remote-stage" data-call-remote-stage>
+          <video class="call-remote hidden" data-call-remote autoplay playsinline></video>
+        </div>
+        <div class="call-voice" data-call-voice>
+          <div class="call-avatar" data-call-avatar>د</div>
+          <strong class="call-name" data-call-name></strong>
+          <span class="call-subtitle" data-call-timer>00:00</span>
+        </div>
+        <video class="call-local hidden" data-call-local autoplay playsinline muted></video>
+        <div class="call-controls">
+          <button class="call-ctl mic" type="button" data-call-mic aria-pressed="false" title="كتم الميكروفون">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
+            <span>كتم</span>
+          </button>
+          <button class="call-ctl cam hidden" type="button" data-call-cam aria-pressed="false" title="إيقاف الكاميرا">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M23 7l-7 5 7 5V7z"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
+            <span>الكاميرا</span>
+          </button>
+          <button class="call-ctl end" type="button" data-call-end title="إنهاء المكالمة">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.68 13.31a16 16 0 0 0 3.41 2.6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7 2 2 0 0 1 1.72 2v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.42 19.42 0 0 1-3.33-2.67m-2.67-3.34a19.79 19.79 0 0 1-3.07-8.63A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91"/><line x1="23" y1="1" x2="1" y2="23"/></svg>
+            <span>إنهاء</span>
+          </button>
+        </div>
+      </div>
+    </section>
+  </div>
+  <div class="chat-lightbox hidden" data-chat-lightbox role="dialog" aria-modal="true" aria-label="عرض الصورة">
+    <button class="chat-lightbox-close" type="button" data-chat-lightbox-close aria-label="إغلاق">
+      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
+    </button>
+    <img class="chat-lightbox-image" data-chat-lightbox-image alt="">
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/8.0.7/signalr.min.js"></script>
+  <script src="js/script.js"></script>
+  <script src="js/i18n.js"></script>
+  <script src="js/chat.js"></script>
+</body>
+</html>

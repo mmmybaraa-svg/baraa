@@ -1,0 +1,285 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="icon" type="image/svg+xml" href="logo.svg">
+  <title>الإعدادات | دَرْب</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/settings.css">
+</head>
+<body data-page="settings" class="app-shell">
+  <div data-site-nav></div>
+  <main class="page">
+    <div class="container settings-container">
+      <header class="settings-page-head">
+        <div>
+          <p class="settings-eyebrow">حسابك في دَرْب</p>
+          <h1>الإعدادات</h1>
+          <p class="muted">تحكّم بحسابك وخصوصيتك وطريقة استخدامك لدَرْب.</p>
+        </div>
+        <a class="btn btn-outline" href="profile.html">الملف الشخصي</a>
+      </header>
+      <section class="settings-profile card" aria-label="ملخص الحساب">
+        <div class="settings-avatar" data-settings-avatar aria-hidden="true">د</div>
+        <div class="settings-profile-copy">
+          <strong data-settings-name>جار تحميل الحساب...</strong>
+          <span data-settings-username dir="ltr"></span>
+          <span class="muted" data-settings-role></span>
+        </div>
+        <a class="btn btn-soft" href="profile.html">عرض الملف الشخصي</a>
+      </section>
+      <div class="settings-layout">
+        <nav class="settings-sidebar card" aria-label="أقسام الإعدادات">
+          <button type="button" data-settings-section="account" aria-current="page">الحساب والملف الشخصي</button>
+          <button type="button" data-settings-section="security">الأمان وتسجيل الدخول</button>
+          <button type="button" data-settings-section="notifications">الإشعارات</button>
+          <button type="button" data-settings-section="privacy">المحادثات والخصوصية الاجتماعية</button>
+          <button type="button" data-settings-section="appearance">المظهر وشكل الموقع</button>
+          <button type="button" data-settings-section="location">الموقع والتنقل</button>
+          <button type="button" data-settings-section="trips">تفضيلات الرحلات</button>
+          <button type="button" data-settings-section="accessibility">اللغة وإمكانية الوصول</button>
+          <button type="button" data-settings-section="help">المساعدة والدعم</button>
+          <button type="button" data-settings-section="about">حول دَرْب</button>
+          <button class="settings-logout" type="button" data-settings-logout>
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M10 17l5-5-5-5M15 12H3m9-7h6a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-6"></path></svg>
+            <span>تسجيل الخروج</span>
+          </button>
+        </nav>
+        <div class="settings-panels">
+          <section class="settings-panel card" data-settings-panel="account" aria-labelledby="settingsAccountTitle">
+            <header class="settings-panel-head">
+              <div><h2 id="settingsAccountTitle">الحساب والملف الشخصي</h2><p class="muted">إدارة معلومات حسابك والبيانات المرتبطة به.</p></div>
+            </header>
+            <div class="settings-account-details">
+              <div><span>الاسم</span><strong data-account-name>—</strong></div>
+              <div><span>اسم المستخدم</span><strong data-account-username dir="ltr">—</strong></div>
+              <div><span>البريد الإلكتروني</span><strong data-account-email dir="ltr">—</strong></div>
+              <div><span>رقم الهاتف</span><strong data-account-phone dir="ltr">—</strong></div>
+              <div><span>نوع الحساب</span><strong data-account-role>—</strong></div>
+            </div>
+            <div class="notice info">تعديل الاسم والصورة والجامعة ومعلومات الملف متاح في صفحة الملف الشخصي. تغيير البريد أو الهاتف غير متاح من دون تحقق.</div>
+            <a class="btn btn-primary" href="profile.html">تعديل الملف الشخصي</a>
+          </section>
+
+          <section class="settings-panel card hidden" data-settings-panel="security" aria-labelledby="settingsSecurityTitle">
+            <header class="settings-panel-head"><div><h2 id="settingsSecurityTitle">الأمان وتسجيل الدخول</h2><p class="muted">حافظ على أمان حسابك وتحكّم بتسجيل الدخول.</p></div></header>
+            <form class="settings-form" data-password-form>
+              <h3>تغيير كلمة المرور</h3>
+              <div class="field"><label for="settingsCurrentPassword">كلمة المرور الحالية</label><input id="settingsCurrentPassword" name="currentPassword" type="password" autocomplete="current-password" minlength="6" required></div>
+              <div class="field"><label for="settingsNewPassword">كلمة المرور الجديدة</label><input id="settingsNewPassword" name="newPassword" type="password" autocomplete="new-password" minlength="6" maxlength="256" required></div>
+              <div class="field"><label for="settingsConfirmPassword">تأكيد كلمة المرور الجديدة</label><input id="settingsConfirmPassword" name="confirmPassword" type="password" autocomplete="new-password" minlength="6" maxlength="256" required></div>
+              <p class="settings-inline-error hidden" data-password-error role="alert"></p>
+              <div class="settings-actions"><button class="btn btn-primary" type="submit">حفظ كلمة المرور الجديدة</button><button class="btn btn-outline" type="reset">إلغاء</button></div>
+              <p class="muted">تبقى الجلسة الحالية فعالة. لا يدعم النظام حاليًا إدارة الجلسات أو إبطال الجلسات الأخرى.</p>
+            </form>
+            <div class="settings-future-grid">
+              <article class="settings-callout"><h3>استعادة كلمة المرور</h3><p>لا توجد حاليًا خدمة تحقق أو إرسال بريد/رسائل لاستعادة كلمة المرور.</p><a href="login.html">العودة إلى تسجيل الدخول</a></article>
+              <article class="settings-callout"><h3>المصادقة الثنائية — قريبًا</h3><p>غير متاحة حاليًا، لذلك لا يظهر مفتاح تفعيل غير فعلي.</p></article>
+              <article class="settings-callout"><h3>الجلسات والأجهزة — قريبًا</h3><p>لا يسجل النظام معلومات الأجهزة أو جلسات قابلة للإبطال.</p></article>
+              <article class="settings-callout settings-danger"><h3>حذف الحساب</h3><p>حذف الحساب يزيل جميع بياناتك نهائيًا: الرحلات، الحجوزات، المحادثات، التقييمات، الإشعارات، والعلاقات. لا يمكن التراجع عن هذا الإجراء.</p><button class="btn btn-outline btn-danger" type="button" data-delete-account>حذف الحساب</button></article>
+            </div>
+          </section>
+
+          <section class="settings-panel card hidden" data-settings-panel="notifications" aria-labelledby="settingsNotificationsTitle">
+            <header class="settings-panel-head"><div><h2 id="settingsNotificationsTitle">الإشعارات</h2><p class="muted">اختر التنبيهات التي ترغب في استقبالها.</p></div></header>
+            <label class="settings-switch">
+              <input type="checkbox" data-account-setting="tripRequestNotifications" disabled>
+              <span><strong>طلبات الانضمام إلى رحلاتي</strong><small>التحكم في إنشاء إشعار عند وصول طلب حجز جديد إلى السائق. لا يؤثر ذلك على الحجز نفسه.</small></span>
+            </label>
+            <p class="settings-state muted" data-account-settings-state role="status">جار تحميل تفضيلات الإشعارات والخصوصية...</p>
+            <button type="button" class="btn btn-primary" data-open-notifications>إدارة الإشعارات الحالية</button>
+            <p class="muted">يمكنك قراءة الإشعارات وحذفها من قائمة الإشعارات في شريط التنقل. سجل الإشعارات منفصل عن تفضيلات الاستلام.</p>
+          </section>
+
+          <section class="settings-panel card hidden" data-settings-panel="privacy" aria-labelledby="settingsPrivacyTitle">
+            <header class="settings-panel-head"><div><h2 id="settingsPrivacyTitle">المحادثات والخصوصية الاجتماعية</h2><p class="muted">تحكّم بمن يستطيع التواصل معك وكيف تظهر حالتك.</p></div></header>
+            <div class="settings-subsection">
+              <div class="settings-subsection-head">
+                <div>
+                  <h3>الحسابات المحظورة</h3>
+                  <p class="muted">الحظر أحادي الاتجاه، ولا يحذف المحادثات أو الرسائل السابقة.</p>
+                </div>
+                <button class="btn btn-outline settings-btn-refresh" type="button" data-blocks-refresh>
+                  <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 11a8 8 0 1 0-2.3 5.7"></path><path d="M20 4v6h-6"></path></svg>
+                  <span>تحديث القائمة</span>
+                </button>
+              </div>
+              <p class="settings-state muted" data-blocks-state role="status">جار تحميل الحسابات المحظورة...</p>
+              <div class="settings-block-list" data-block-list></div>
+            </div>
+            <h3 class="settings-privacy-heading">ظهور النشاط والتفاعل</h3>
+            <div class="settings-privacy-group">
+              <label class="settings-switch settings-switch-toggle">
+                <input type="checkbox" role="switch" data-account-setting="showLastSeen" disabled>
+                <span class="switch-track" aria-hidden="true"><span class="switch-thumb"></span></span>
+                <span class="settings-switch-copy">
+                  <strong>حالة النشاط وآخر ظهور</strong>
+                  <small>إظهار آخر ظهورك في سياقات المحادثة.</small>
+                </span>
+              </label>
+              <label class="settings-switch settings-switch-toggle">
+                <input type="checkbox" role="switch" data-account-setting="showTyping" disabled>
+                <span class="switch-track" aria-hidden="true"><span class="switch-thumb"></span></span>
+                <span class="settings-switch-copy">
+                  <strong>مؤشر الكتابة</strong>
+                  <small>إرسال وإظهار مؤشر الكتابة أثناء الكتابة.</small>
+                </span>
+              </label>
+              <label class="settings-switch settings-switch-toggle">
+                <input type="checkbox" role="switch" data-account-setting="readReceipts" disabled>
+                <span class="switch-track" aria-hidden="true"><span class="switch-thumb"></span></span>
+                <span class="settings-switch-copy">
+                  <strong>إيصالات القراءة</strong>
+                  <small>عند الإيقاف، لن يرسل الخادم تأكيد القراءة للرسائل الجديدة أو يعرض تأكيدات قراءتك للطرف الآخر.</small>
+                </span>
+              </label>
+              <label class="settings-switch settings-switch-toggle">
+                <input type="checkbox" role="switch" data-account-setting="showSocialProfile" disabled>
+                <span class="switch-track" aria-hidden="true"><span class="switch-thumb"></span></span>
+                <span class="settings-switch-copy">
+                  <strong>الظهور الاجتماعي</strong>
+                  <small>السماح بعرض ملفك الشخصي العام للآخرين.</small>
+                </span>
+              </label>
+            </div>
+            <p class="settings-state muted" data-account-settings-state role="status">جار تحميل تفضيلات الإشعارات والخصوصية...</p>
+          </section>
+
+          <section class="settings-panel card hidden" data-settings-panel="appearance" aria-labelledby="settingsAppearanceTitle">
+            <header class="settings-panel-head"><div><h2 id="settingsAppearanceTitle">المظهر وشكل الموقع</h2><p class="muted">خصّص شكل دَرْب بما يناسبك. تطبّق التغييرات فورًا على الصفحات المشتركة.</p></div></header>
+            <fieldset class="settings-choice-group settings-choice-stack"><legend>السمة</legend>
+              <div class="seg-control seg-theme">
+                <label class="seg-item">
+                  <input type="radio" name="theme" value="light">
+                  <span class="seg-face">
+                    <svg class="seg-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="4"></circle><path d="M12 2.5v2M12 19.5v2M4.6 4.6l1.4 1.4M18 18l1.4 1.4M2.5 12h2M19.5 12h2M4.6 19.4 6 18M18 6l1.4-1.4"></path></svg>
+                    <span>فاتح</span>
+                  </span>
+                </label>
+                <label class="seg-item">
+                  <input type="radio" name="theme" value="dark">
+                  <span class="seg-face">
+                    <svg class="seg-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+                    <span>داكن</span>
+                  </span>
+                </label>
+                <label class="seg-item">
+                  <input type="radio" name="theme" value="system">
+                  <span class="seg-face">
+                    <svg class="seg-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="2.5" y="4" width="19" height="13" rx="2"></rect><path d="M8.5 21h7M12 17v4"></path></svg>
+                    <span>تلقائي حسب الجهاز</span>
+                  </span>
+                </label>
+              </div>
+            </fieldset>
+            <fieldset class="settings-choice-group settings-choice-stack"><legend>حجم النص</legend>
+              <div class="seg-control seg-font">
+                <label class="seg-item">
+                  <input type="radio" name="fontSize" value="small">
+                  <span class="seg-face"><span>صغير</span></span>
+                </label>
+                <label class="seg-item">
+                  <input type="radio" name="fontSize" value="medium">
+                  <span class="seg-face"><span>متوسط</span></span>
+                </label>
+                <label class="seg-item">
+                  <input type="radio" name="fontSize" value="large">
+                  <span class="seg-face"><span>كبير</span></span>
+                </label>
+              </div>
+            </fieldset>
+            <label class="settings-switch settings-switch-toggle"><input type="checkbox" role="switch" data-appearance-option="reducedMotion"><span class="switch-track" aria-hidden="true"><span class="switch-thumb"></span></span><span><strong>تقليل الحركة</strong><small>تقليل الانتقالات والحركات غير الضرورية.</small></span></label>
+            <label class="settings-switch settings-switch-toggle"><input type="checkbox" role="switch" data-appearance-option="highContrast"><span class="switch-track" aria-hidden="true"><span class="switch-thumb"></span></span><span><strong>تباين أوضح</strong><small>تقوية حدود الحقول ومؤشرات التركيز.</small></span></label>
+            <div class="settings-actions"><button class="btn btn-outline" type="button" data-appearance-reset>استعادة الإعدادات الافتراضية</button></div>
+            <p class="muted" data-appearance-status role="status">تُحفظ تفضيلات المظهر على هذا الجهاز فقط.</p>
+          </section>
+
+          <section class="settings-panel card hidden" data-settings-panel="location" aria-labelledby="settingsLocationTitle">
+            <header class="settings-panel-head"><div><h2 id="settingsLocationTitle">الموقع والتنقل</h2><p class="muted">إدارة إعدادات الموقع والأماكن المحفوظة.</p></div></header>
+            <div class="settings-callout"><h3>إذن الموقع في المتصفح</h3><p>لا يطلب دَرْب الموقع عند فتح هذه الصفحة. يمكنك التحقق بطلب إذن لمرة واحدة، وقد تحتاج أيضًا إلى السماح به من إعدادات المتصفح.</p><p data-location-state class="muted">لم يتم التحقق من إذن الموقع.</p><button class="btn btn-outline" type="button" data-location-check>التحقق بطلب إذن لمرة واحدة</button></div>
+            <label class="settings-switch">
+              <input type="checkbox" data-account-setting="shareLocation" disabled>
+              <span><strong>مشاركة موقعي مع ركاب رحلاتي المؤكدة</strong><small>عند الإيقاف، يتوقف إرسال مواقع جديدة وتُحذف مواقع الرحلات المحفوظة على الخادم. هذا الخيار مستقل عن إذن الموقع في المتصفح.</small></span>
+            </label>
+            <p class="settings-state muted" data-account-settings-state role="status">جار تحميل تفضيلات الإشعارات والخصوصية...</p>
+            <div class="notice info">لا يطلب دَرْب الموقع إلا بعد إجراء منك، وتبقى مشاركة موقع السائق محصورة بالركاب ذوي الحجوزات المؤكدة.</div>
+          </section>
+
+          <section class="settings-panel card hidden" data-settings-panel="trips" aria-labelledby="settingsTripsTitle">
+            <header class="settings-panel-head"><div><h2 id="settingsTripsTitle">تفضيلات الرحلات</h2><p class="muted">خصّص تجربتك حسب نوع حسابك.</p></div></header>
+            <p>يمكنك البحث عن الرحلات وإدارة الحجوزات من الصفحات الحالية، لكن تفضيلات بحث افتراضية محفوظة بالحساب غير مدعومة بعد.</p>
+            <div class="settings-actions"><a class="btn btn-primary" href="trips.html">استعراض الرحلات</a><a class="btn btn-outline" href="profile.html">معلومات الحساب والجامعة</a></div>
+            <div class="notice info">لا تؤثر أي تفضيلات غير محفوظة على نتائج الرحلات أو أهلية الحجز.</div>
+          </section>
+
+          <section class="settings-panel card hidden" data-settings-panel="accessibility" aria-labelledby="settingsAccessibilityTitle">
+            <header class="settings-panel-head"><div><h2 id="settingsAccessibilityTitle">اللغة وإمكانية الوصول</h2><p class="muted">اجعل استخدام دَرْب أوضح وأسهل.</p></div></header>
+            <fieldset class="settings-choice-group"><legend>لغة الواجهة</legend>
+              <label><input type="radio" name="language" value="ar" checked> العربية</label>
+              <label><input type="radio" name="language" value="en"> English</label>
+            </fieldset>
+            <p class="muted">إعدادات حجم النص وتقليل الحركة والتباين موجودة في قسم المظهر وتطبّق عبر الصفحات المشتركة.</p>
+          </section>
+
+          <section class="settings-panel card hidden" data-settings-panel="help" aria-labelledby="settingsHelpTitle">
+            <header class="settings-panel-head"><div><h2 id="settingsHelpTitle">المساعدة والدعم</h2><p class="muted">نحن هنا لمساعدتك في استخدام دَرْب.</p></div></header>
+            <div class="settings-faq">
+              <details><summary>كيف أنشئ حسابًا؟</summary><p>استخدم رابط إنشاء الحساب وسجّل بياناتك المطلوبة. الحسابات تحفظ على خادم دَرْب.</p></details>
+              <details><summary>كيف أحجز رحلة؟</summary><p>استعرض الرحلات، اختر رحلة مناسبة، ثم أرسل طلب الحجز وانتظر رد السائق.</p></details>
+              <details><summary>متى تتاح المحادثة؟</summary><p>تتاح المحادثة بين طرفي الحجز بعد تأكيده.</p></details>
+              <details><summary>كيف أحظر مستخدمًا؟</summary><p>افتح المحادثة معه واختر «حظر المستخدم». يمنع ذلك الطرف المحظور من إرسال رسائل جديدة إليك.</p></details>
+              <details><summary>هل يمكن استعادة كلمة المرور أو التواصل مع الدعم؟</summary><p>خدمة استعادة كلمة المرور وتذاكر الدعم لم تُفعّل بعد. لا يوجد عنوان دعم موثق يمكن عرضه حاليًا.</p></details>
+            </div>
+            <div class="notice info">مركز الدعم وإرسال البلاغات غير متاحين حاليًا. لا يتم إرسال نموذج وهمي أو الادعاء بحفظ بلاغ.</div>
+          </section>
+
+          <section class="settings-panel card hidden" data-settings-panel="about" aria-labelledby="settingsAboutTitle">
+            <header class="settings-panel-head"><div><h2 id="settingsAboutTitle">حول دَرْب</h2><p class="muted">تعرّف على المنصة ومعلوماتها.</p></div></header>
+            <div class="settings-about-mark">د</div>
+            <h3>دَرْب | DARB</h3>
+            <p>منصة لتنظيم تنقّل طلاب الجامعات في الأردن وربط الركاب بالسائقين والرحلات المؤكدة.</p>
+            <p class="muted">إصدار التطبيق غير محدد في ملفات المشروع.</p>
+            <p class="muted">لا توجد حاليًا صفحة شروط استخدام أو سياسة خصوصية منشورة ضمن التطبيق.</p>
+          </section>
+        </div>
+      </div>
+    </div>
+  </main>
+  <dialog class="settings-logout-dialog" data-settings-logout-dialog aria-labelledby="settingsLogoutTitle">
+    <form method="dialog">
+      <h2 id="settingsLogoutTitle">تسجيل الخروج</h2>
+      <p>هل أنت متأكد أنك تريد تسجيل الخروج؟</p>
+      <div class="settings-actions">
+        <button class="btn btn-outline" type="submit" value="cancel" data-logout-cancel>إلغاء</button>
+        <button class="btn btn-primary" type="button" data-logout-confirm>تسجيل الخروج</button>
+      </div>
+    </form>
+  </dialog>
+  <dialog class="settings-delete-dialog" data-settings-delete-dialog aria-labelledby="settingsDeleteTitle">
+    <form method="dialog">
+      <h2 id="settingsDeleteTitle">حذف الحساب</h2>
+      <p class="muted">هذا الإجراء <strong>لا يمكن التراجع عنه</strong>. سيتم حذف جميع بياناتك نهائيًا بما في ذلك:</p>
+      <ul class="muted" style="margin: 0.5rem 0 1rem 1.5rem; text-align: right;">
+        <li>الرحلات والحجوزات</li>
+        <li>المحادثات والرسائل</li>
+        <li>التقييمات والعلاقات (متابعة/حظر)</li>
+        <li>الإشعارات وتفضيلات الحساب</li>
+      </ul>
+      <div class="field">
+        <label for="deleteConfirmPassword">أدخل كلمة المرور للتأكيد</label>
+        <input id="deleteConfirmPassword" name="deleteConfirmPassword" type="password" autocomplete="current-password" required minlength="6">
+      </div>
+      <p class="settings-inline-error hidden" data-delete-error role="alert"></p>
+      <div class="settings-actions">
+        <button class="btn btn-outline" type="submit" value="cancel" data-delete-cancel>إلغاء</button>
+        <button class="btn btn-danger" type="button" data-delete-confirm>حذف الحساب نهائيًا</button>
+      </div>
+    </form>
+  </dialog>
+  <script src="js/script.js"></script>
+  <script src="js/i18n.js"></script>
+  <script src="js/settings.js"></script>
+  <script src="js/settings-preferences.js"></script>
+</body>
+</html>
